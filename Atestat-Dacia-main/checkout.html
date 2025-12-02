@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MunchFE Checkout</title>
+<style>
+body { font-family: Arial, sans-serif; padding:20px; background:#f5f5f5; }
+h1 { text-align:center; margin-bottom:30px; color:#4E342E; }
+#checkout-container { max-width:800px; margin:0 auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+.cart-item { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #ddd; }
+.cart-item span { margin:0 5px; }
+.cart-total { text-align:right; font-weight:bold; font-size:18px; margin-top:20px; color:#6D4C41; }
+button { padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-weight:bold; margin-top:20px; }
+#stripe-btn { background:#6772E5; color:#fff; }
+#paypal-btn { background:#003087; color:#fff; margin-left:10px; }
+</style>
+</head>
+<body>
+
+<h1>MunchFE Checkout</h1>
+
+<div id="checkout-container">
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total"></div>
+    <div style="text-align:right;">
+        <button id="stripe-btn">Pay with Card (Stripe)</button>
+        <button id="paypal-btn">Pay with PayPal</button>
+    </div>
+    <div style="text-align:right; margin-top:10px;">
+    <button id="return-btn" style="background:#A1887F; color:#fff;">Return to Shop</button>
+    </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('munchfeCart')) || [];
+
+function displayCart() {
+    const container = document.getElementById('cart-items');
+    container.innerHTML = '';
+    let total = 0;
+
+    if(cart.length === 0){
+        container.innerHTML = "<p>Your cart is empty!</p>";
+        document.getElementById('cart-total').innerText = '';
+        return;
+    }
+
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+            <span>${item.name}</span>
+            <span>€${item.price.toFixed(2)}</span>
+            <span>Qty: ${item.quantity}</span>
+            <span>Subtotal: €${subtotal.toFixed(2)}</span>
+        `;
+        container.appendChild(div);
+    });
+
+    document.getElementById('cart-total').innerText = "Total: €" + total.toFixed(2);}
+    document.getElementById('return-btn').addEventListener('click', () => {
+    // Redirect back to the shop page
+    window.location.href = 'shop.html';});
+
+displayCart();
+
+// Placeholder buttons for Stripe / PayPal
+document.getElementById('stripe-btn').addEventListener('click', () => {
+    alert("Stripe payment integration goes here!");
+    // Here you would redirect to your backend / Stripe checkout session
+});
+
+document.getElementById('paypal-btn').addEventListener('click', () => {
+    alert("PayPal payment integration goes here!");
+    // Here you would use PayPal JS SDK to process payment
+});
+</script>
+</body>
+</html>

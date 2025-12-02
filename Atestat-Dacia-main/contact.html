@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchFE Contact</title>
+    <link rel="icon" type="image/png" href="images/logo munchfe3.jpg">
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body, html { margin:0; padding:0; font-family:'Arial', sans-serif; color:#4E342E; }
+        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+        /* ====== HEADER ====== */
+        header { background-color:#fff; padding:5px 0; position: sticky; top:0; z-index:999; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+        #logo img { width:90px; display:block; margin-left:0; }
+        nav ul { list-style:none; display:flex; gap:20px; justify-content:flex-end; margin:0; padding:0; font-size:15px; font-weight:600; }
+        nav ul li a { color:#4E342E; padding:5px 0; transition:color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color:#A1887F; }
+
+        /* ====== CONTACT HERO ====== */
+        .hero { background-color:#f5e9dc; text-align:center; padding:60px 20px; border-radius:12px; margin-bottom:40px; }
+        .hero h1 { margin-bottom:20px; }
+        .hero p { font-size:16px; max-width:600px; margin:0 auto; }
+
+        /* ====== CONTACT FORM ====== */
+        .contact-form { max-width:600px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+        .contact-form label { display:block; margin-bottom:5px; font-weight:bold; }
+        .contact-form input, .contact-form textarea { width:100%; padding:10px; margin-bottom:20px; border:1px solid #ddd; border-radius:6px; }
+        .contact-form button { padding:12px 25px; border:none; border-radius:6px; background:#6D4C41; color:#fff; cursor:pointer; font-weight:bold; }
+        .contact-form button:hover { background:#A1887F; }
+
+        /* ====== FOOTER ====== */
+        footer { background-color:#3E2723; color:#F5E9DC; padding:20px 0; }
+        footer h4 { margin-bottom:8px; color:#FFD6A5; font-size:15px; }
+        .footer-links ul li a { color:#F5E9DC; font-size:13px; }
+        .footer-links ul li a:hover { color:#FFD6A5; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+        <div id="logo">
+            <a href="index.html"><img src="images/logo munchfe3.jpg" alt="MunchFE Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Contact MunchFE</h1>
+    <p>Have questions or want to get in touch? Fill out the form below and we'll respond as soon as possible.</p>
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-form">
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="form-response" style="margin-top:15px; color:#6D4C41;"></p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
+        <div class="footer-brand">
+            <h4>MunchFE</h4>
+            <img src="images/logo munchfe3.jpg" alt="MunchFE Logo" style="width:70px; display:block; margin:5px auto 0;">
+        </div>
+        <div class="footer-links">
+            <h4>Useful Information</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- FORM SCRIPT -->
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // For now, we just display a confirmation message
+        document.getElementById('form-response').innerText = `Thank you, ${name}! Your message has been sent.`;
+
+        // Clear the form
+        document.getElementById('contactForm').reset();
+    });
+</script>
+
+</body>
+</html>

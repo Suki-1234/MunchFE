@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MunchFE</title>
+    <link rel="icon" type="image/png" href="images/logo munchfe3.jpg">
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body, html { margin:0; padding:0; font-family:'Arial', sans-serif; color:#4E342E; }
+        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+        /* ====== HEADER ====== */
+        header { background-color:#fff; padding:5px 0; position: sticky; top:0; z-index:999; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+        #logo img { width:90px; display:block; margin-left:0; }
+        nav ul { list-style:none; display:flex; gap:20px; justify-content:flex-end; margin:0; padding:0; font-size:15px; font-weight:600; }
+        nav ul li a { color:#4E342E; padding:5px 0; transition:color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color:#A1887F; }
+
+        /* ====== HERO SECTION ====== */
+        .hero { background-color:#f5e9dc; text-align:center; padding:60px 20px; border-radius:12px; margin-bottom:40px; }
+        .hero h1 { margin-bottom:20px; }
+        .hero p { font-size:16px; max-width:700px; margin:0 auto; }
+
+        /* ====== ABOUT CONTENT ====== */
+        .about-section { padding:40px 0; display:flex; flex-wrap:wrap; gap:40px; align-items:center; }
+        .about-text { flex:1 1 500px; }
+        .about-text h2 { margin-bottom:15px; }
+        .about-text p { margin-bottom:20px; line-height:1.6; }
+        .about-image { flex:1 1 400px; text-align:center; }
+        .about-image img { width:100%; max-width:400px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+
+        /* ====== TEAM SECTION ====== */
+       /* ====== TEAM SECTION ====== */
+/* ====== TEAM SECTION ====== */
+.team-section { padding:40px 0; text-align:center; }
+.team-section h2 { margin-bottom:30px; }
+.team-members { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.team-member { flex:1 1 200px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); text-align:center; }
+.team-member img { width:180px; height:180px; object-fit:cover; object-position: top 10%; border-radius:50%; margin-bottom:15px; }
+.team-member h4 { margin-bottom:5px; font-size:16px; }
+.team-member p { font-size:14px; color:#6D4C41; }
+
+
+        /* ====== FOOTER ====== */
+        footer { background-color:#3E2723; color:#F5E9DC; padding:20px 0; }
+        footer h4 { margin-bottom:8px; color:#FFD6A5; font-size:15px; }
+        .footer-links ul li a { color:#F5E9DC; font-size:13px; }
+        .footer-links ul li a:hover { color:#FFD6A5; }
+
+        @media(max-width:768px){
+            .about-section { flex-direction:column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+        <div id="logo">
+            <a href="index.html"><img src="images/logo munchfe3.jpg" alt="MunchFE Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="aboutus.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>About MunchFE</h1>
+    <p>At MunchFE, we believe every chocolate bite should be a joyful and nourishing moment. Learn more about our story, mission, and passion for creating the perfect chocolate experience.</p>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-section container">
+    <div class="about-text">
+        <h2>Our Story</h2>
+        <p>MunchFE was founded with the simple goal of combining indulgence with nourishment. We wanted to create chocolate bars that not only taste amazing but also support your health with essential nutrients like Iron and Vitamin C.</p>
+        <p>Our products are designed for people who want a treat that is both delicious and beneficial, perfect for everyday energy or supporting your body during menstruation. Every bite of MunchFE is made with care, passion, and premium ingredients.</p>
+    </div>
+    <div class="about-image">
+        <img src="images/barritas.jpg" alt="MunchFE Chocolate Bars">
+    </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+        <div class="team-member">
+            <img src="images/FOTO_Xie Chen.jpg" alt="Founder">
+            <h4>Suki Xie</h4>
+            <p>Founder & CEO</p>
+        </div>
+        <div class="team-member">
+            <img src="images/team2.jpg" alt="Founder">
+            <h4>Marcus Chow</h4>
+            <p>Founder & CEO</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
+        <div class="footer-brand">
+            <h4>MunchFE</h4>
+            <img src="images/logo munchfe3.jpg" alt="MunchFE Logo" style="width:70px; display:block; margin:5px auto 0;">
+        </div>
+        <div class="footer-links">
+            <h4>Useful Information</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

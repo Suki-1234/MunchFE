@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchFE</title>
+    <link rel="icon" type="image/png" href="images/logo munchfe3.jpg">
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* ====== BASIC STYLING ====== */
+        body, html { margin: 0; padding: 0; font-family: 'Arial', sans-serif; color: #4E342E; scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        h1, h2, h3 { margin-bottom: 20px; }
+        section { padding: 60px 0; }
+
+     /* ====== HEADER ====== */
+    header {background-color: #fff;
+    padding: 4px 0; /* smaller height */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);}
+
+    #logo img {
+    width: 75px; /* smaller logo */
+    display: block;}
+
+    nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px; /* nice spacing */
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    font-size: 19px; /* bigger letters */
+    font-weight: 700; /* bold clean look */
+    letter-spacing: 0.5px;}
+
+    nav ul li a {
+    color: #4E342E;
+    transition: color 0.3s;}
+
+     nav ul li a:hover,
+     nav ul li a.active {
+    color: #A1887F;}
+
+    nav ul li a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: #A1887F;
+    transition: 0.3s ease;
+    border-radius: 3px;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;}
+    #toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #6D4C41;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.4s;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+/* animated underline effect */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #A1887F;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+/* hover + active underline */
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #A1887F;
+}
+
+    /* ====== FOOTER ====== */
+    footer {
+        background-color: #3E2723; /* dark chocolate */
+        color: #F5E9DC; /* light cream color for text */
+        padding: 40px 0;
+    }
+    footer h4 {
+        margin-bottom: 15px;
+        color: #FFD6A5; /* warm highlight for headings */
+    }
+    .footer-links ul li a {
+        color: #F5E9DC; /* cream color for links */
+    }
+    .footer-links ul li a:hover {
+        color: #FFD6A5;
+    }
+
+        /* ====== HERO SECTIONS ====== */
+        .fullscreen { height: 90vh; background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; }
+
+        /* ====== ABOUT SECTION ====== */
+        .about-flex { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; }
+        .about-text { flex: 1 1 55%; min-width: 280px; }
+        .about-image { flex: 1 1 40%; min-width: 280px; text-align: center; }
+        .about-image img { width: 100%; max-width: 420px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+        /* ====== SHOP SECTION ====== */
+        .product img { width: 250px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .btn { padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-primary { background-color: #6D4C41; color: #fff; }
+        .btn-secondary { background-color: #A1887F; color: #fff; }
+        .wishlist-heart {font-size: 30px; cursor: pointer; color: #A1887F; position: absolute; right: 20px; top: 20px;}
+         .wishlist-heart.active {color: red;}
+
+        /* ====== SUBSCRIPTION SECTION ====== */
+        .subscribe-section { background-color: #f5e9dc; }
+        .subscription-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
+        .subscription-card { flex: 1 1 250px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        .subscription-card { transition: transform 0.3s, box-shadow 0.3s;}
+        .subscription-card:hover {transform: translateY(-8px);box-shadow: 0 8px 25px rgba(0,0,0,0.15);}
+
+        .favorite-bar img { width: 200px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin-top: 20px; }
+
+        /* ====== FOOTER ====== */
+        footer {
+        background-color: #3E2723; /* dark chocolate */
+        color: #F5E9DC; /* light cream color for text */
+        padding: 40px 0;
+    }
+    footer h4 {
+        margin-bottom: 15px;
+        color: #FFD6A5; /* warm highlight for headings */
+    }
+    .footer-links ul li a {
+        color: #F5E9DC; /* cream color for links */
+    }
+    .footer-links ul li a:hover {
+        color: #FFD6A5;
+    }
+
+        /* ====== RESPONSIVE ====== */
+        @media(max-width: 768px) {
+            .about-flex { flex-direction: column; text-align: center; }
+            .about-text, .about-image { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+        <div id="logo">
+            <a href="index.html"><img src="images/logo munchfe3.jpg" alt="MunchFE Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO SECTIONS -->
+<section id="section1" class="fullscreen background-fixed" style="background-image:url(images/chocolate.1.jpg);">
+        </section>
+        <section id="section2" class="fullscreen background-fixed" style="background-image:url(images/chocolate-bars.jpg);">
+        </section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section">
+    <div class="container">
+        <h1 class="text-center">Welcome to MunchFE</h1>
+        <div class="about-flex">
+            <div class="about-text">
+                <p>Where every bite feels like a little moment of happiness. Our chocolate bars are made with rich, premium cocoa and enriched with essential Iron and Vitamin C, designed especially for people who struggle with low energy, iron deficiency, or fatigue during menstruation.</p>
+                <p>We created a bar that still tastes like the treat you expect, but also supports your body with nutrients you might be missing. Whether you are looking for a daily boost, a sweet moment of relief, or a healthier way to treat yourself, MunchFE is here to make every bite joyful and purposeful.</p>
+                <p>Founded with passion for flavor, MunchFE’s mission is simple: to make every chocolate moment unforgettable. Discover our signature bar, explore our ingredients, and taste the joy in every piece.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/barritas.jpg" alt="MunchFE Chocolate Bars">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SHOP SECTION -->
+<section id="shop" class="section text-center">
+    <div class="container">
+        <h2>Shop MunchFE Chocolate</h2>
+        <div class="product">
+            <img src="images/barritas.jpg" alt="Classic MunchFE Chocolate Bar">
+            <h3>Classic MunchFE Bar</h3>
+            <p>€2.99 Dark chocolate</p>
+            <button class="btn btn-primary">Add to Cart</button>
+            <span class="wishlist-heart" data-id="1">♡</span> 
+        </div>
+    </div>
+</section>
+
+<!-- SUBSCRIPTION SECTION -->
+<section id="subscribe" class="subscribe-section">
+    <div class="container text-center">
+        <h2>Make It a Habit</h2>
+        <p>Receive MunchFE bars delivered to your door every month. Skip, cancel, or adjust anytime.</p>
+        <div class="subscription-cards">
+            <div class="subscription-card">
+                <h3>Monthly Box</h3>
+                <p>4 bars / month</p>
+                <p><strong>€9.99</strong></p>
+                <button class="btn btn-secondary">Subscribe</button>
+            </div>
+            <div class="subscription-card">
+                <h3>Premium Box</h3>
+                <p>8 bars + exclusive flavor</p>
+                <p><strong>€17.99</strong></p>
+                <button class="btn btn-secondary">Subscribe</button>
+            </div>
+        </div>
+        <div class="favorite-bar">
+            <h3>Your Favorite Bar</h3>
+            <img src="images/barritas.jpg" alt="MunchFE Bar">
+        </div>
+    </div>
+</section>
+<script>
+document.querySelectorAll(".subscription-card .btn").forEach(btn => {
+    btn.onclick = () => {
+        showToast("Subscription added to cart!");
+    };
+});
+</script>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
+        <div class="footer-brand">
+            <h4>MunchFE</h4>
+            <img src="images/logo munchfe3.jpg" alt="MunchFE Logo" style="width:100px; display:block; margin:10px auto 0;">
+        </div>
+        <div class="footer-links">
+            <h4>Useful Information</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/functions.js"></script>
+<script>
+document.querySelectorAll(".wishlist-heart").forEach(heart => {
+    heart.onclick = () => {
+        heart.classList.toggle("active");
+
+        let id = heart.dataset.id;
+        let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+        if (wishlist.includes(id)) {
+            wishlist = wishlist.filter(x => x !== id);
+        } else {
+            wishlist.push(id);
+            showToast("Added to wishlist ❤️");
+        }
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    };
+});
+</script>
+<div id="toast"></div>
+<script>
+function showToast(msg) {
+    let t = document.getElementById("toast");
+    t.innerHTML = msg;
+    t.style.opacity = 1;
+    setTimeout(() => { t.style.opacity = 0; }, 2000);
+}
+</script>
+
+
+</body>
+</html>

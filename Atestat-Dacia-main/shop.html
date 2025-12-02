@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MunchFE Shop</title>
+<link rel="icon" type="image/png" href="images/logo munchfe3.jpg">
+<link href="css/style.css" rel="stylesheet">
+<style>
+body, html { margin:0; padding:0; font-family: Arial, sans-serif; color:#4E342E; scroll-behavior:smooth;}
+a { text-decoration: none; color: inherit; }
+.container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+/* ====== HEADER ====== */
+header {
+    background-color: #fff;
+    padding: 4px 0; /* small clean look */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+#logo img {
+    width: 75px; /* same size across all pages */
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px; /* spacing between menu items */
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    font-size: 19px; /* same text size */
+    font-weight: 700; /* bold clean look */
+    letter-spacing: 0.5px;
+}
+
+nav ul li a {
+    color: #4E342E;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #A1887F;
+}
+
+/* link default */
+nav ul li a {
+    color: #4E342E;
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 0.3s;
+}
+
+/* animated underline effect */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #A1887F;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+/* hover + active underline */
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #A1887F;
+}
+
+section.shop-section { padding:60px 0; }
+.products-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:30px; }
+.product-card { background:#fff; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); padding:20px; text-align:center; transition: transform 0.3s; }
+.product-card:hover { transform: translateY(-5px); }
+.product-card img { width:100%; max-width:180px; margin-bottom:15px; border-radius:8px; }
+.product-card h3 { margin-bottom:10px; font-size:18px; }
+.product-card p { margin-bottom:15px; color:#6D4C41; }
+.btn { padding:10px 25px; border:none; border-radius:6px; cursor:pointer; font-weight:bold; }
+.btn-primary { background:#6D4C41; color:#fff; }
+.btn-primary:hover { background:#A1887F; }
+
+/* ====== FOOTER ====== */
+        footer {
+        background-color: #3E2723; /* dark chocolate */
+        color: #F5E9DC; /* light cream color for text */
+        padding: 40px 0;
+    }
+    footer h4 {
+        margin-bottom: 15px;
+        color: #FFD6A5; /* warm highlight for headings */
+    }
+    .footer-links ul li a {
+        color: #F5E9DC; /* cream color for links */
+    }
+    .footer-links ul li a:hover {
+        color: #FFD6A5;
+    }
+
+        /* ====== RESPONSIVE ====== */
+        @media(max-width: 768px) {
+            .about-flex { flex-direction: column; text-align: center; }
+            .about-text, .about-image { flex: 1 1 100%; }
+        }
+     /* ====== FOOTER ====== */
+    footer {
+        background-color: #3E2723; /* dark chocolate */
+        color: #F5E9DC; /* light cream color for text */
+        padding: 40px 0;
+    }
+    footer h4 {
+        margin-bottom: 15px;
+        color: #FFD6A5; /* warm highlight for headings */
+    }
+    .footer-links ul li a {
+        color: #F5E9DC; /* cream color for links */
+    }
+    .footer-links ul li a:hover {
+        color: #FFD6A5;
+    }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+<div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+    <div id="logo">
+        <a href="index.html"><img src="images/logo munchfe3.jpg" alt="MunchFE Logo"></a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="subscription.html">Subscription</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<!-- SHOP SECTION -->
+<section class="shop-section">
+<div class="container">
+    <h1>Shop MunchFE Chocolate</h1>
+    <div class="products-grid">
+        <div class="product-card" data-name="Classic MunchFE Dark" data-price="2.99">
+            <img src="images/barritas.jpg" alt="Classic Dark">
+            <h3>Classic Dark</h3>
+            <p>€2.99 | Dark chocolate</p>
+            <button class="btn btn-primary">Add to Cart</button>
+        </div>
+        <div class="product-card" data-name="Classic MunchFE Milk" data-price="2.99">
+            <img src="images/barritas.jpg" alt="Classic Milk">
+            <h3>Classic Milk</h3>
+            <p>€2.99 | Milk chocolate</p>
+            <button class="btn btn-primary">Add to Cart</button>
+        </div>
+        <div class="product-card" data-name="Classic MunchFE White" data-price="2.99">
+            <img src="images/barritas.jpg" alt="Classic White">
+            <h3>Classic White</h3>
+            <p>€2.99 | White chocolate</p>
+            <button class="btn btn-primary">Add to Cart</button>
+        </div>
+        <div class="product-card" data-name="Premium MunchFE Nuts" data-price="3.50">
+            <img src="images/barritas.jpg" alt="Premium Bar">
+            <h3>Premium Bar</h3>
+            <p>€3.50 | Dark chocolate with nuts</p>
+            <button class="btn btn-primary">Add to Cart</button>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+    <div class="footer-brand">
+        <h4>MunchFE</h4>
+        <img src="images/logo munchfe3.jpg" alt="Logo" style="width:70px;">
+    </div>
+    <div class="footer-links">
+        <h4>Useful Information</h4>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="subscription.html">Subscription</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+</div>
+</footer>
+
+<script>
+// Initialize cart
+let cart = JSON.parse(localStorage.getItem('munchfeCart')) || [];
+
+// Update cart count (total quantity)
+function updateCartCount() {
+    const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').innerText = totalQty;
+}
+
+updateCartCount();
+
+// Add product to cart
+document.querySelectorAll('.btn.btn-primary').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const card = btn.closest('.product-card');
+        const name = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+
+        // Check if product exists
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+
+        localStorage.setItem('munchfeCart', JSON.stringify(cart));
+        updateCartCount();
+        alert(name + " added to cart!");
+    });
+});
+</script>
+</body>
+</html>
